@@ -20,7 +20,7 @@ int buttonPin = 3;
 byte counter = 0;
 
 // Calculate the maximum value to be displayed.
-int maxValue = 7;
+int maxValue = 15;
 
 /**
  * Perform the initial setup of our device.
@@ -36,7 +36,16 @@ void setup()
   }
 
   // Blink each of the LEDs to confirm the circuit is correct.
-  fastBlink();
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(ledPin[i], HIGH);
+  }
+
+  delay(1500);
+
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(ledPin[i], LOW);
+  }
+
 }
 
 /**
@@ -60,7 +69,7 @@ void loop()
     delay(1000);
     // Reset our counter.
     counter = 0;
-	displayBinary(counter);
+  displayBinary(counter);
   }
 }
 
